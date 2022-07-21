@@ -4,9 +4,9 @@
 
 layout: home
 list_title: Latest Posts
-title: ''
+title: 'The Generative Generation'
 ---
 
 Welcome.
 
-Here you can find creative uses of data. I hope.
+Here you can find creative uses of data.

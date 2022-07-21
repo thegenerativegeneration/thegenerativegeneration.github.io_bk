@@ -22,7 +22,7 @@ title: The Generative Generation
 email: 
 description: >- # this means to ignore newlines until "baseurl:"
   Creative adventures into the latent space.
-baseurl: "/blog" # the subpath of your site, e.g. /blog
+baseurl: "/" # the subpath of your site, e.g. /blog
 url: "http://thegenerativegeneration.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: TheGenerativeGeneration
 github_username:  thegenerativegeneration
