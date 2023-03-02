@@ -212,7 +212,6 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
-  - jekyll-analytics
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -273,8 +272,3 @@ defaults:
       comments: # true
       share: true
       related: true
-
-jekyll_analytics:
-  Piwik:                    # Add, if you want to track with Piwik
-    url: haslbom.containers.piwik.pro  # Required - url to Piwik installation without trailing /
-    siteId: "01d17e67-2116-4bf5-89bd-dce01a5bcbd9"  
