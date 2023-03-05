@@ -6,10 +6,6 @@ categories: diffusion control stablediffusion
 toc: true
 ---
 
-TODO:
-
-- add classifier-free guidance
-
 In this article, I have compiled several methods to steer the diffusion process. If not otherwise stated, I present the methods as they are used with Stable Diffusion.
 
 Although the mechanisms presented are used in 2D image generation, I assume that they can be used in the generation of other modalities.
