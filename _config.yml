@@ -103,8 +103,8 @@ analytics:
 author:
   name             : "Philipp Haslbauer"
   avatar           : "https://en.gravatar.com/userimage/52045156/8ab369c1d246e65bda88813ce7c4cb81.jpg?size=200"
-  bio              : "I am a machine learning engineer."
-  location         : "Switzerland and Germany"
+  bio              : "Machine learning and software development."
+  location         : "Switzerland/Germany"
   #email            : Ask me for it on Twitter.
   links:
     - label: "Email"
