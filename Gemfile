@@ -32,6 +32,5 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
 gem "webrick"
 gem "jekyll-toc"
-gem 'jekyll-scholar', group: :jekyll_plugins
 gem "minimal-mistakes-jekyll"
-gem 'jekyll-analytics'
+#gem "jekyll-scholar"

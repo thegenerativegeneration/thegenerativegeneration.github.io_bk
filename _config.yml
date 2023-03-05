@@ -212,6 +212,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-toc
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -272,3 +273,6 @@ defaults:
       comments: # true
       share: true
       related: true
+
+scholar:
+  style: modern-language-association
