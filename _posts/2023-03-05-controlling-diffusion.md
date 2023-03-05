@@ -12,7 +12,7 @@ Although the mechanisms presented are used in 2D image generation, I assume that
 
 I will try to keep this article up to date. If you have any suggestions, please let me know.
 
-# Requires Retraining the Original Model
+# Finetune
 
 ## Cross Attention
 
@@ -40,8 +40,7 @@ Some video diffusion papers applied this method to interpolate frames in the fra
 - requires retraining or finetuning
 
 
-# Requires Training a Separate Model
-
+# Train a New Model
 
 ## [ControlNet](https://github.com/lllyasviel/ControlNet)
 
@@ -72,7 +71,7 @@ An interesting application of T2I-Adapter in the paper is sequential editing whe
 - lightweight (300MB)
 - composability
 
-# Requires no Training At All
+# No Training Required
 
 
 ## Gradient-Based Guidance -> CLIP Guidance
