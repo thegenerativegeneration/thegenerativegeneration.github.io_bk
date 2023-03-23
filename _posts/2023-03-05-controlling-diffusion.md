@@ -89,13 +89,12 @@ grads = -torch.autograd.grad(loss, latents)[0]
 noise_pred = noise_pred_original - torch.sqrt(beta_prod_t) * grads
 ```
 
-I have used this together with a face recognition model to steer generation towards
+I have used this approach together with a face recognition model to steer generation towards
 generating faces that look like a groundtruth face.
 The generated face was very similar to the ground truth face but not perfect. By itself, it is probably not enough. The authors of [DifFace](https://arxiv.org/abs/2212.06512) use this method combined with a learned face conditioning to improve the generation result.
 
 This is generated me:
-
-![Generated me]({{site.url}}/assets/images/target_philipp.png)
+![Generated me]({{site.url}}/assets/images/controlling_diffusion/target_philipp.png)
 
 - no increase in model size
 - no retraining
