@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "Controlling Diffusion - An Overview of Ways to Control Diffusion Models"
+title:  "Control - How to Steer Diffusion Models"
 date:   2023-03-05 16:08:44 +0100
 categories: diffusion control stablediffusion
 toc: true
@@ -16,8 +16,6 @@ I will try to keep this article up to date. If you have any suggestions, please 
 
 ## Cross Attention
 
-
-
 In Stable Diffusion (and Imagen/Dalle 2) text prompts are used to condition the image generation. The text prompts are encoded by a text model. The encoding is passed into the diffusion model to a cross-attention layer. The cross-attention layer can also be used to condition on different information. However, adding new conditioning requires retraining.
 
 This is probably not great when you want to combine multiple conditionings as each would likely require its own cross-attention layers.
@@ -27,10 +25,9 @@ This is probably not great when you want to combine multiple conditionings as ea
 - requires retraining or finetuning
 
 
-
 ## Concatenation
 
-If the conditioning you want to use has the same size as the diffusion model input, you can use concatenation. If it doesn't you can embed it into this shape. 
+If the conditioning you want to use has the same size as the diffusion model input, you can use concatenation. If it doesn't, you can still embed it into this shape. 
 
 For example, you can train an upsampling model by concatenating (in the channel dimension) the noisy input and a lower-resolution input that is bilinearly upsampled to the input size. For this specific use case, the input size of the model increases from `BxCxHxW` to `Bx2*CxHxW` ("Guided-Diffusion Paper").
 
@@ -38,6 +35,7 @@ Some video diffusion papers applied this method to interpolate frames in the fra
 
 - increases input size in the channel dimension
 - requires retraining or finetuning
+- can be an alternative to cross-attention
 
 
 # Train a New Model
@@ -71,6 +69,9 @@ An interesting application of T2I-Adapter in the paper is sequential editing whe
 - lightweight (300MB)
 - composability
 
+
+
+
 # No Training Required
 
 
@@ -88,9 +89,19 @@ grads = -torch.autograd.grad(loss, latents)[0]
 noise_pred = noise_pred_original - torch.sqrt(beta_prod_t) * grads
 ```
 
+I have used this together with a face recognition model to steer generation towards
+generating faces that look like a groundtruth face.
+The generated face was very similar to the ground truth face but not perfect. By itself, it is probably not enough. The authors of [DifFace](https://arxiv.org/abs/2212.06512) use this method combined with a learned face conditioning to improve the generation result.
+
+This is generated me:
+
+![Generated me]({{site.url}}/assets/images/target_philipp.png)
+
 - no increase in model size
 - no retraining
 - you could apply multiple conditionings this way
+
+
 
 ### Other applications:
 
@@ -114,3 +125,7 @@ noise_pred = self.unet(latent_model_input, timestep, encoder_hidden_states=text_
 
 This method can also be used for video diffusion to generate new frames based on previous ones. The advantage is that retraining is not necessary.
 
+# Final Thoughts
+
+It seems like there is a push towards a decoupling of conditioning and generative model. 
+Although in Stable Diffusion the text conditioning was still trained jointly via cross-attention, I could imagine future image generative models to try training that conditioning separately. This would make it possible to switch text encoders without retraining the whole diffusion model and the diffusion model would be more lightweight with cross-attention being removed.
