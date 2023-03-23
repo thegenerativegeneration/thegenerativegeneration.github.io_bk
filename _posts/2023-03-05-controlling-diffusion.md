@@ -127,4 +127,4 @@ This method can also be used for video diffusion to generate new frames based on
 # Final Thoughts
 
 It seems like there is a push towards a decoupling of conditioning and generative model. 
-Although in Stable Diffusion the text conditioning was still trained jointly via cross-attention, I could imagine future image generative models to try training that conditioning separately. This would make it possible to switch text encoders without retraining the whole diffusion model and the diffusion model would be more lightweight with cross-attention being removed.
+Although in Stable Diffusion the text conditioning was still trained jointly via cross-attention, I could imagine future image generative models train that conditioning separately. This would make it possible to switch text encoders without retraining the whole diffusion model and the diffusion model would be more lightweight with cross-attention being removed.
