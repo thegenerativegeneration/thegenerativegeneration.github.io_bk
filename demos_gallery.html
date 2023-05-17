@@ -1,0 +1,9 @@
+---
+layout: single
+---
+
+{% for demo in site.demos %}
+  <h2><a href="{{ demo.url }}">{{ demo.title }}</a></h2>
+  <p>{{ demo.description }}</p>
+  <img src="{{ demo.preview }}" alt="{{ demo.title }}">
+{% endfor %}
