@@ -33,10 +33,14 @@ const setupAudio = async (selectedSource, n_bins) => {
     return [analyser, stream];
 };
 
-const createUI = (audioSources, container, onChangeCallback) => {
+const createUI = (container) => {
     const gui = new dat.GUI({ autoPlace: false });
     container.appendChild(gui.domElement);
-  
+    return gui;
+};
+
+const addAudioInputToUI = (audioSources, gui, onChangeCallback) => {
+
     // Create an object to store the current audio source selection
     const audioSelection = { source: '' };
   
@@ -57,4 +61,4 @@ const createUI = (audioSources, container, onChangeCallback) => {
     });
   };
 
-export { createUI, setupAudio, audioSources };
+export { createUI, addAudioInputToUI, setupAudio, audioSources };
